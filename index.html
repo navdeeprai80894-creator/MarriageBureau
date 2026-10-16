@@ -1,0 +1,3493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="MatrimonyHub - Professional Marriage Bureau Management System">
+
+    <meta name="theme-color" content="#1A5276">
+
+    <title>
+        MatrimonyHub | Marriage Bureau Management System
+    </title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         APPLICATION NOTIFICATIONS
+    =========================================== -->
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+
+    <!-- ==========================================
+         AUTHENTICATION SCREEN
+    =========================================== -->
+
+    <section id="auth-screen" class="auth-screen">
+
+        <div class="auth-container">
+
+            <div class="auth-brand">
+
+                <div class="auth-logo">
+
+                    <i class="fas fa-heart"></i>
+
+                </div>
+
+                <h1>MatrimonyHub</h1>
+
+                <p>
+                    Connecting Hearts, Building Futures
+                </p>
+
+            </div>
+
+
+            <div class="auth-card">
+
+                <!-- LOGIN FORM -->
+
+                <div id="login-panel">
+
+                    <div class="auth-heading">
+
+                        <h2>Welcome Back</h2>
+
+                        <p>
+                            Sign in to your matrimonial management
+                            dashboard.
+                        </p>
+
+                    </div>
+
+
+                    <form id="login-form">
+
+                        <div class="form-group">
+
+                            <label for="login-email">
+                                Email Address
+                            </label>
+
+                            <div class="input-icon">
+
+                                <i class="fas fa-envelope"></i>
+
+                                <input type="email" id="login-email" placeholder="Enter your email" autocomplete="email"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="login-password">
+                                Password
+                            </label>
+
+                            <div class="input-icon">
+
+                                <i class="fas fa-lock"></i>
+
+                                <input type="password" id="login-password" placeholder="Enter your password"
+                                    autocomplete="current-password" required>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary btn-full">
+
+                            <i class="fas fa-right-to-bracket"></i>
+
+                            Sign In
+
+                        </button>
+
+                    </form>
+
+
+                    <div class="auth-switch">
+
+                        <p>
+                            Don't have an account?
+
+                            <button type="button" id="show-register" class="text-button">
+                                Create Account
+                            </button>
+
+                        </p>
+
+                    </div>
+
+                    <div class="demo-credentials">
+
+                        <i class="fas fa-circle-info"></i>
+
+                        <p>
+                            Demo staff account:
+                            <strong>admin@matrimonyhub.com</strong>
+                            <br>
+                            Password:
+                            <strong>Admin@123</strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCOUNT REGISTRATION -->
+
+                <div id="register-panel" class="hidden">
+
+                    <div class="auth-heading">
+
+                        <h2>Create Account</h2>
+
+                        <p>
+                            Register to access MatrimonyHub.
+                        </p>
+
+                    </div>
+
+
+                    <form id="account-register-form">
+
+                        <div class="form-group">
+
+                            <label for="account-name">
+                                Full Name
+                            </label>
+
+                            <input type="text" id="account-name" placeholder="Enter your full name" minlength="2"
+                                maxlength="80" required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="account-email">
+                                Email Address
+                            </label>
+
+                            <input type="email" id="account-email" placeholder="Enter your email" autocomplete="email"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="account-role">
+                                Account Type
+                            </label>
+
+                            <select id="account-role" required>
+
+                                <option value="client">
+                                    Client
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="account-password">
+                                Password
+                            </label>
+
+                            <input type="password" id="account-password" placeholder="Minimum 8 characters"
+                                minlength="8" autocomplete="new-password" required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="account-confirm-password">
+                                Confirm Password
+                            </label>
+
+                            <input type="password" id="account-confirm-password" placeholder="Confirm password"
+                                minlength="8" autocomplete="new-password" required>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary btn-full">
+
+                            <i class="fas fa-user-plus"></i>
+
+                            Create Account
+
+                        </button>
+
+                    </form>
+
+
+                    <div class="auth-switch">
+
+                        <p>
+                            Already have an account?
+
+                            <button type="button" id="show-login" class="text-button">
+                                Sign In
+                            </button>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auth-footer">
+
+                <p>
+                    MatrimonyHub — Internship Project WD-MAT-004
+                </p>
+
+                <p>
+                    Developed for Data Alcott Systems
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         MAIN APPLICATION
+    =========================================== -->
+
+    <div id="app" class="app-layout hidden">
+
+
+        <!-- ======================================
+             SIDEBAR
+        ======================================= -->
+
+        <aside id="sidebar" class="sidebar">
+
+            <div class="sidebar-header">
+
+                <div class="brand-icon">
+
+                    <i class="fas fa-heart"></i>
+
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>MatrimonyHub</h2>
+
+                    <span>Marriage Bureau System</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-content">
+
+                <div class="sidebar-label">
+                    MAIN MENU
+                </div>
+
+
+                <nav class="sidebar-nav" aria-label="Main navigation">
+
+                    <a href="#dashboard" class="nav-link active" data-page="dashboard">
+
+                        <i class="fas fa-gauge-high"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+
+                    <a href="#clients" class="nav-link" data-page="clients">
+
+                        <i class="fas fa-users"></i>
+
+                        <span>Client Directory</span>
+
+                    </a>
+
+
+                    <a href="#register-client" class="nav-link" data-page="register-client">
+
+                        <i class="fas fa-user-plus"></i>
+
+                        <span>Register Client</span>
+
+                    </a>
+
+
+                    <a href="#matches" class="nav-link" data-page="matches">
+
+                        <i class="fas fa-heart-circle-check"></i>
+
+                        <span>Matchmaking</span>
+
+                    </a>
+
+
+                    <a href="#inquiries" class="nav-link" data-page="inquiries">
+
+                        <i class="fas fa-envelope-open-text"></i>
+
+                        <span>Inquiries</span>
+
+                    </a>
+
+
+                    <a href="#messages" class="nav-link" data-page="messages">
+
+                        <i class="fas fa-comments"></i>
+
+                        <span>Messages</span>
+
+                    </a>
+
+
+                    <a href="#success-stories" class="nav-link" data-page="success-stories">
+
+                        <i class="fas fa-ring"></i>
+
+                        <span>Success Stories</span>
+
+                    </a>
+
+                </nav>
+
+
+                <div class="sidebar-label">
+                    MANAGEMENT
+                </div>
+
+
+                <nav class="sidebar-nav" aria-label="Management navigation">
+
+                    <a href="#reports" class="nav-link" data-page="reports">
+
+                        <i class="fas fa-chart-pie"></i>
+
+                        <span>Reports & Analytics</span>
+
+                    </a>
+
+
+                    <a href="#notifications" class="nav-link" data-page="notifications">
+
+                        <i class="fas fa-bell"></i>
+
+                        <span>Notifications</span>
+
+                    </a>
+
+
+                    <a href="#settings" class="nav-link" data-page="settings">
+
+                        <i class="fas fa-gear"></i>
+
+                        <span>Settings</span>
+
+                    </a>
+
+                </nav>
+
+            </div>
+
+
+            <div class="sidebar-footer">
+
+                <div class="sidebar-user">
+
+                    <div class="user-avatar">
+
+                        <i class="fas fa-user"></i>
+
+                    </div>
+
+                    <div class="sidebar-user-info">
+
+                        <strong id="sidebar-username">
+                            Bureau Admin
+                        </strong>
+
+                        <span id="sidebar-role">
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button type="button" id="sidebar-logout" class="sidebar-logout">
+
+                    <i class="fas fa-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ======================================
+             MOBILE SIDEBAR OVERLAY
+        ======================================= -->
+
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+
+
+        <!-- ======================================
+             MAIN CONTENT
+        ======================================= -->
+
+        <div class="main-wrapper">
+
+
+            <!-- TOP NAVIGATION BAR -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button type="button" id="menu-toggle" class="icon-button menu-toggle"
+                        aria-label="Toggle navigation menu" aria-expanded="false">
+
+                        <i class="fas fa-bars"></i>
+
+                    </button>
+
+
+                    <div class="breadcrumb">
+
+                        <span>MatrimonyHub</span>
+
+                        <i class="fas fa-chevron-right"></i>
+
+                        <strong id="breadcrumb-current">
+                            Dashboard
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <button type="button" id="theme-toggle" class="icon-button" aria-label="Toggle dark mode">
+
+                        <i class="fas fa-moon"></i>
+
+                    </button>
+
+
+                    <button type="button" id="notification-button" class="icon-button notification-button"
+                        aria-label="Open notifications">
+
+                        <i class="fas fa-bell"></i>
+
+                        <span id="notification-count" class="notification-count">
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <div class="topbar-user">
+
+                        <div class="topbar-avatar">
+
+                            <i class="fas fa-user"></i>
+
+                        </div>
+
+                        <div class="topbar-user-details">
+
+                            <strong id="topbar-username">
+                                Bureau Admin
+                            </strong>
+
+                            <span id="topbar-role">
+                                Administrator
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- ==================================
+                 PAGE CONTENT
+            =================================== -->
+
+            <main class="main-content">
+
+
+                <!-- ==============================
+                     DASHBOARD PAGE
+                =============================== -->
+
+                <section id="dashboard" class="page-section active">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                OVERVIEW
+                            </span>
+
+                            <h1>
+                                Dashboard
+                            </h1>
+
+                            <p>
+                                Welcome to MatrimonyHub.
+                                Here's what's happening at your bureau.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-primary" data-navigate="register-client">
+
+                            <i class="fas fa-plus"></i>
+
+                            Add New Client
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- WELCOME BANNER -->
+
+                    <div class="welcome-banner">
+
+                        <div class="welcome-content">
+
+                            <span class="welcome-badge">
+
+                                <i class="fas fa-heart"></i>
+
+                                MATRIMONYHUB
+
+                            </span>
+
+                            <h2>
+                                Bringing Hearts Together
+                            </h2>
+
+                            <p>
+                                Manage matrimonial profiles,
+                                discover compatible matches,
+                                and celebrate beautiful success stories.
+                            </p>
+
+                            <button type="button" class="btn btn-white" data-navigate="matches">
+
+                                Explore Matches
+
+                                <i class="fas fa-arrow-right"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="welcome-illustration">
+
+                            <div class="heart-circle">
+
+                                <i class="fas fa-heart"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- STATISTICS CARDS -->
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon blue">
+
+                                <i class="fas fa-users"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Total Clients</span>
+
+                                <h3 id="stat-total-clients">
+                                    0
+                                </h3>
+
+                                <small>
+                                    Registered profiles
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon pink">
+
+                                <i class="fas fa-heart"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Active Matches</span>
+
+                                <h3 id="stat-active-matches">
+                                    0
+                                </h3>
+
+                                <small>
+                                    Match connections
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon orange">
+
+                                <i class="fas fa-envelope"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Total Inquiries</span>
+
+                                <h3 id="stat-inquiries">
+                                    0
+                                </h3>
+
+                                <small>
+                                    Client inquiries
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon green">
+
+                                <i class="fas fa-ring"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Success Stories</span>
+
+                                <h3 id="stat-success">
+                                    0
+                                </h3>
+
+                                <small>
+                                    Happy marriages
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DASHBOARD CONTENT -->
+
+                    <div class="dashboard-grid">
+
+
+                        <!-- RECENT CLIENTS -->
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Recent Clients
+                                    </h3>
+
+                                    <p>
+                                        Latest registered matrimonial profiles
+                                    </p>
+
+                                </div>
+
+
+                                <button type="button" class="btn btn-outline btn-sm" data-navigate="clients">
+
+                                    View All
+
+                                </button>
+
+                            </div>
+
+
+                            <div id="recent-clients" class="recent-clients"></div>
+
+                        </div>
+
+
+
+                        <!-- QUICK ACTIONS -->
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Quick Actions
+                                    </h3>
+
+                                    <p>
+                                        Frequently used bureau tools
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="quick-actions">
+
+                                <button type="button" class="quick-action" data-navigate="register-client">
+
+                                    <span class="quick-icon blue">
+
+                                        <i class="fas fa-user-plus"></i>
+
+                                    </span>
+
+                                    <span>
+                                        Register New Client
+                                    </span>
+
+                                    <i class="fas fa-arrow-right"></i>
+
+                                </button>
+
+
+                                <button type="button" class="quick-action" data-navigate="matches">
+
+                                    <span class="quick-icon pink">
+
+                                        <i class="fas fa-heart"></i>
+
+                                    </span>
+
+                                    <span>
+                                        Find Compatible Matches
+                                    </span>
+
+                                    <i class="fas fa-arrow-right"></i>
+
+                                </button>
+
+
+                                <button type="button" class="quick-action" data-navigate="inquiries">
+
+                                    <span class="quick-icon orange">
+
+                                        <i class="fas fa-envelope"></i>
+
+                                    </span>
+
+                                    <span>
+                                        Manage Inquiries
+                                    </span>
+
+                                    <i class="fas fa-arrow-right"></i>
+
+                                </button>
+
+
+                                <button type="button" class="quick-action" data-navigate="reports">
+
+                                    <span class="quick-icon green">
+
+                                        <i class="fas fa-chart-column"></i>
+
+                                    </span>
+
+                                    <span>
+                                        View Bureau Reports
+                                    </span>
+
+                                    <i class="fas fa-arrow-right"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RECENT ACTIVITY -->
+
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Recent Activity
+                                </h3>
+
+                                <p>
+                                    Latest updates across your bureau
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="recent-activity" class="activity-list"></div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     CLIENT DIRECTORY
+                =============================== -->
+
+                <section id="clients" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                CLIENT MANAGEMENT
+                            </span>
+
+                            <h1>
+                                Client Directory
+                            </h1>
+
+                            <p>
+                                Browse, search, and manage registered
+                                matrimonial profiles.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-primary" data-navigate="register-client">
+
+                            <i class="fas fa-user-plus"></i>
+
+                            Add Client
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- CLIENT FILTERS -->
+
+                    <div class="card filter-card">
+
+                        <div class="filter-grid">
+
+                            <div class="form-group">
+
+                                <label for="client-search">
+                                    Search Clients
+                                </label>
+
+                                <div class="input-icon">
+
+                                    <i class="fas fa-search"></i>
+
+                                    <input type="search" id="client-search"
+                                        placeholder="Search by name, occupation, location...">
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="filter-gender">
+                                    Gender
+                                </label>
+
+                                <select id="filter-gender">
+
+                                    <option value="">
+                                        All Genders
+                                    </option>
+
+                                    <option value="Male">
+                                        Male
+                                    </option>
+
+                                    <option value="Female">
+                                        Female
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="filter-religion">
+                                    Religion
+                                </label>
+
+                                <select id="filter-religion">
+
+                                    <option value="">
+                                        All Religions
+                                    </option>
+
+                                    <option value="Hindu">
+                                        Hindu
+                                    </option>
+
+                                    <option value="Muslim">
+                                        Muslim
+                                    </option>
+
+                                    <option value="Christian">
+                                        Christian
+                                    </option>
+
+                                    <option value="Sikh">
+                                        Sikh
+                                    </option>
+
+                                    <option value="Buddhist">
+                                        Buddhist
+                                    </option>
+
+                                    <option value="Jain">
+                                        Jain
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="filter-status">
+                                    Status
+                                </label>
+
+                                <select id="filter-status">
+
+                                    <option value="">
+                                        All Statuses
+                                    </option>
+
+                                    <option value="Active">
+                                        Active
+                                    </option>
+
+                                    <option value="Pending">
+                                        Pending
+                                    </option>
+
+                                    <option value="Matched">
+                                        Matched
+                                    </option>
+
+                                    <option value="Married">
+                                        Married
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="filter-footer">
+
+                            <span id="client-result-count">
+                                0 clients found
+                            </span>
+
+
+                            <button type="button" id="clear-client-filters" class="btn btn-light btn-sm">
+
+                                <i class="fas fa-rotate-left"></i>
+
+                                Clear Filters
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CLIENT CARDS -->
+
+                    <div id="client-grid" class="client-grid"></div>
+
+
+                    <!-- EMPTY STATE -->
+
+                    <div id="clients-empty" class="empty-state hidden">
+
+                        <div class="empty-icon">
+
+                            <i class="fas fa-users-slash"></i>
+
+                        </div>
+
+                        <h3>
+                            No Clients Found
+                        </h3>
+
+                        <p>
+                            Try adjusting your filters or register
+                            a new matrimonial profile.
+                        </p>
+
+                        <button type="button" class="btn btn-primary" data-navigate="register-client">
+
+                            Register Client
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     CLIENT REGISTRATION
+                =============================== -->
+
+                <section id="register-client" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                CLIENT MANAGEMENT
+                            </span>
+
+                            <h1 id="registration-title">
+                                Register New Client
+                            </h1>
+
+                            <p>
+                                Complete the following steps to create
+                                a matrimonial profile.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="registration-container">
+
+
+                        <!-- STEP INDICATOR -->
+
+                        <div class="registration-steps">
+
+                            <div class="step-item active" data-step="1">
+
+                                <div class="step-number">
+                                    1
+                                </div>
+
+                                <div class="step-text">
+
+                                    <strong>
+                                        Personal
+                                    </strong>
+
+                                    <span>
+                                        Basic details
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="step-item" data-step="2">
+
+                                <div class="step-number">
+                                    2
+                                </div>
+
+                                <div class="step-text">
+
+                                    <strong>
+                                        Family
+                                    </strong>
+
+                                    <span>
+                                        Family background
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="step-item" data-step="3">
+
+                                <div class="step-number">
+                                    3
+                                </div>
+
+                                <div class="step-text">
+
+                                    <strong>
+                                        Career
+                                    </strong>
+
+                                    <span>
+                                        Education & work
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="step-item" data-step="4">
+
+                                <div class="step-number">
+                                    4
+                                </div>
+
+                                <div class="step-text">
+
+                                    <strong>
+                                        Preferences
+                                    </strong>
+
+                                    <span>
+                                        Ideal partner
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- REGISTRATION FORM -->
+
+                        <form id="client-registration-form" class="card registration-card">
+
+
+                            <!-- STEP 1: PERSONAL INFORMATION -->
+
+                            <div class="form-step active" data-form-step="1">
+
+                                <div class="form-section-heading">
+
+                                    <div class="section-heading-icon">
+
+                                        <i class="fas fa-user"></i>
+
+                                    </div>
+
+                                    <div>
+
+                                        <h2>
+                                            Personal Information
+                                        </h2>
+
+                                        <p>
+                                            Enter the client's personal details.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-grid">
+
+                                    <div class="form-group">
+
+                                        <label for="client-name">
+                                            Full Name *
+                                        </label>
+
+                                        <input type="text" id="client-name" name="name" placeholder="Enter full name"
+                                            minlength="2" maxlength="100" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-gender">
+                                            Gender *
+                                        </label>
+
+                                        <select id="client-gender" name="gender" required>
+
+                                            <option value="">
+                                                Select Gender
+                                            </option>
+
+                                            <option value="Male">
+                                                Male
+                                            </option>
+
+                                            <option value="Female">
+                                                Female
+                                            </option>
+
+                                            <option value="Other">
+                                                Other
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-dob">
+                                            Date of Birth *
+                                        </label>
+
+                                        <input type="date" id="client-dob" name="dob" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-marital-status">
+                                            Marital Status *
+                                        </label>
+
+                                        <select id="client-marital-status" name="maritalStatus" required>
+
+                                            <option value="">
+                                                Select Status
+                                            </option>
+
+                                            <option value="Never Married">
+                                                Never Married
+                                            </option>
+
+                                            <option value="Divorced">
+                                                Divorced
+                                            </option>
+
+                                            <option value="Widowed">
+                                                Widowed
+                                            </option>
+
+                                            <option value="Separated">
+                                                Separated
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-religion">
+                                            Religion *
+                                        </label>
+
+                                        <select id="client-religion" name="religion" required>
+
+                                            <option value="">
+                                                Select Religion
+                                            </option>
+
+                                            <option value="Hindu">
+                                                Hindu
+                                            </option>
+
+                                            <option value="Muslim">
+                                                Muslim
+                                            </option>
+
+                                            <option value="Christian">
+                                                Christian
+                                            </option>
+
+                                            <option value="Sikh">
+                                                Sikh
+                                            </option>
+
+                                            <option value="Buddhist">
+                                                Buddhist
+                                            </option>
+
+                                            <option value="Jain">
+                                                Jain
+                                            </option>
+
+                                            <option value="Other">
+                                                Other
+                                            </option>
+
+                                            <option value="Prefer Not to Say">
+                                                Prefer Not to Say
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-caste">
+                                            Caste
+                                        </label>
+
+                                        <input type="text" id="client-caste" name="caste"
+                                            placeholder="Enter caste (optional)" maxlength="80">
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-mother-tongue">
+                                            Mother Tongue *
+                                        </label>
+
+                                        <input type="text" id="client-mother-tongue" name="motherTongue"
+                                            placeholder="e.g. Tamil, Hindi, Telugu" maxlength="80" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-status">
+                                            Profile Status *
+                                        </label>
+
+                                        <select id="client-status" name="status" required>
+
+                                            <option value="Active">
+                                                Active
+                                            </option>
+
+                                            <option value="Pending">
+                                                Pending
+                                            </option>
+
+                                            <option value="Matched">
+                                                Matched
+                                            </option>
+
+                                            <option value="Married">
+                                                Married
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="client-photo">
+                                        Profile Photograph
+                                    </label>
+
+                                    <div class="photo-upload">
+
+                                        <div id="photo-preview" class="photo-preview">
+
+                                            <i class="fas fa-camera"></i>
+
+                                        </div>
+
+                                        <div class="photo-upload-content">
+
+                                            <input type="file" id="client-photo"
+                                                accept="image/png,image/jpeg,image/webp">
+
+                                            <p>
+                                                Upload JPG, PNG, or WebP.
+                                                Maximum size: 1 MB.
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- STEP 2: FAMILY INFORMATION -->
+
+                            <div class="form-step" data-form-step="2">
+
+                                <div class="form-section-heading">
+
+                                    <div class="section-heading-icon">
+
+                                        <i class="fas fa-house-user"></i>
+
+                                    </div>
+
+                                    <div>
+
+                                        <h2>
+                                            Family Details
+                                        </h2>
+
+                                        <p>
+                                            Tell us about the client's
+                                            family background.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-grid">
+
+                                    <div class="form-group">
+
+                                        <label for="family-type">
+                                            Family Type *
+                                        </label>
+
+                                        <select id="family-type" name="familyType" required>
+
+                                            <option value="">
+                                                Select Family Type
+                                            </option>
+
+                                            <option value="Nuclear">
+                                                Nuclear Family
+                                            </option>
+
+                                            <option value="Joint">
+                                                Joint Family
+                                            </option>
+
+                                            <option value="Extended">
+                                                Extended Family
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="family-values">
+                                            Family Values *
+                                        </label>
+
+                                        <select id="family-values" name="familyValues" required>
+
+                                            <option value="">
+                                                Select Family Values
+                                            </option>
+
+                                            <option value="Traditional">
+                                                Traditional
+                                            </option>
+
+                                            <option value="Moderate">
+                                                Moderate
+                                            </option>
+
+                                            <option value="Liberal">
+                                                Liberal
+                                            </option>
+
+                                            <option value="Modern">
+                                                Modern
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="father-occupation">
+                                            Father's Occupation *
+                                        </label>
+
+                                        <input type="text" id="father-occupation" name="fatherOccupation"
+                                            placeholder="Enter occupation" maxlength="100" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="mother-occupation">
+                                            Mother's Occupation *
+                                        </label>
+
+                                        <input type="text" id="mother-occupation" name="motherOccupation"
+                                            placeholder="Enter occupation" maxlength="100" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="siblings-count">
+                                            Number of Siblings *
+                                        </label>
+
+                                        <input type="number" id="siblings-count" name="siblings"
+                                            placeholder="Enter number" min="0" max="30" required>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- STEP 3: EDUCATION AND CAREER -->
+
+                            <div class="form-step" data-form-step="3">
+
+                                <div class="form-section-heading">
+
+                                    <div class="section-heading-icon">
+
+                                        <i class="fas fa-graduation-cap"></i>
+
+                                    </div>
+
+                                    <div>
+
+                                        <h2>
+                                            Education & Career
+                                        </h2>
+
+                                        <p>
+                                            Enter educational qualifications
+                                            and professional information.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-grid">
+
+                                    <div class="form-group">
+
+                                        <label for="education-level">
+                                            Education Level *
+                                        </label>
+
+                                        <select id="education-level" name="education" required>
+
+                                            <option value="">
+                                                Select Education
+                                            </option>
+
+                                            <option value="High School">
+                                                High School
+                                            </option>
+
+                                            <option value="Diploma">
+                                                Diploma
+                                            </option>
+
+                                            <option value="Bachelor's Degree">
+                                                Bachelor's Degree
+                                            </option>
+
+                                            <option value="B.Tech">
+                                                B.Tech
+                                            </option>
+
+                                            <option value="B.E">
+                                                B.E
+                                            </option>
+
+                                            <option value="B.Sc">
+                                                B.Sc
+                                            </option>
+
+                                            <option value="B.Com">
+                                                B.Com
+                                            </option>
+
+                                            <option value="MBA">
+                                                MBA
+                                            </option>
+
+                                            <option value="M.Tech">
+                                                M.Tech
+                                            </option>
+
+                                            <option value="M.Sc">
+                                                M.Sc
+                                            </option>
+
+                                            <option value="Master's Degree">
+                                                Master's Degree
+                                            </option>
+
+                                            <option value="PhD">
+                                                PhD
+                                            </option>
+
+                                            <option value="Other">
+                                                Other
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="client-occupation">
+                                            Occupation *
+                                        </label>
+
+                                        <input type="text" id="client-occupation" name="occupation"
+                                            placeholder="e.g. Software Engineer" maxlength="100" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="annual-income">
+                                            Annual Income (INR) *
+                                        </label>
+
+                                        <input type="number" id="annual-income" name="income" placeholder="e.g. 800000"
+                                            min="0" max="1000000000" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="working-location">
+                                            Working Location *
+                                        </label>
+
+                                        <input type="text" id="working-location" name="location"
+                                            placeholder="e.g. Chennai" maxlength="100" required>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- STEP 4: PARTNER PREFERENCES -->
+
+                            <div class="form-step" data-form-step="4">
+
+                                <div class="form-section-heading">
+
+                                    <div class="section-heading-icon">
+
+                                        <i class="fas fa-heart"></i>
+
+                                    </div>
+
+                                    <div>
+
+                                        <h2>
+                                            Partner Preferences
+                                        </h2>
+
+                                        <p>
+                                            Specify the client's preferred
+                                            partner characteristics.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-grid">
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-min-age">
+                                            Minimum Age *
+                                        </label>
+
+                                        <input type="number" id="preferred-min-age" name="preferredMinAge" min="18"
+                                            max="100" value="24" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-max-age">
+                                            Maximum Age *
+                                        </label>
+
+                                        <input type="number" id="preferred-max-age" name="preferredMaxAge" min="18"
+                                            max="100" value="35" required>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-gender">
+                                            Preferred Gender
+                                        </label>
+
+                                        <select id="preferred-gender" name="preferredGender">
+
+                                            <option value="Any">
+                                                Any
+                                            </option>
+
+                                            <option value="Male">
+                                                Male
+                                            </option>
+
+                                            <option value="Female">
+                                                Female
+                                            </option>
+
+                                            <option value="Other">
+                                                Other
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-religion">
+                                            Preferred Religion
+                                        </label>
+
+                                        <select id="preferred-religion" name="preferredReligion">
+
+                                            <option value="Any">
+                                                Any Religion
+                                            </option>
+
+                                            <option value="Hindu">
+                                                Hindu
+                                            </option>
+
+                                            <option value="Muslim">
+                                                Muslim
+                                            </option>
+
+                                            <option value="Christian">
+                                                Christian
+                                            </option>
+
+                                            <option value="Sikh">
+                                                Sikh
+                                            </option>
+
+                                            <option value="Buddhist">
+                                                Buddhist
+                                            </option>
+
+                                            <option value="Jain">
+                                                Jain
+                                            </option>
+
+                                            <option value="Other">
+                                                Other
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-caste">
+                                            Preferred Caste
+                                        </label>
+
+                                        <input type="text" id="preferred-caste" name="preferredCaste"
+                                            placeholder="Any caste" maxlength="80">
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-education">
+                                            Preferred Education
+                                        </label>
+
+                                        <select id="preferred-education" name="preferredEducation">
+
+                                            <option value="Any">
+                                                Any Education
+                                            </option>
+
+                                            <option value="High School">
+                                                High School
+                                            </option>
+
+                                            <option value="Diploma">
+                                                Diploma
+                                            </option>
+
+                                            <option value="Bachelor's Degree">
+                                                Bachelor's Degree
+                                            </option>
+
+                                            <option value="B.Tech">
+                                                B.Tech
+                                            </option>
+
+                                            <option value="B.E">
+                                                B.E
+                                            </option>
+
+                                            <option value="B.Sc">
+                                                B.Sc
+                                            </option>
+
+                                            <option value="B.Com">
+                                                B.Com
+                                            </option>
+
+                                            <option value="MBA">
+                                                MBA
+                                            </option>
+
+                                            <option value="M.Tech">
+                                                M.Tech
+                                            </option>
+
+                                            <option value="M.Sc">
+                                                M.Sc
+                                            </option>
+
+                                            <option value="Master's Degree">
+                                                Master's Degree
+                                            </option>
+
+                                            <option value="PhD">
+                                                PhD
+                                            </option>
+
+                                            <option value="Other">
+                                                Other
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-occupation">
+                                            Preferred Occupation
+                                        </label>
+
+                                        <input type="text" id="preferred-occupation" name="preferredOccupation"
+                                            placeholder="Any occupation" maxlength="100">
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label for="preferred-location">
+                                            Preferred Location
+                                        </label>
+
+                                        <input type="text" id="preferred-location" name="preferredLocation"
+                                            placeholder="Any location" maxlength="100">
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="info-box">
+
+                                    <i class="fas fa-circle-info"></i>
+
+                                    <p>
+                                        Partner preferences help our
+                                        matchmaking engine suggest
+                                        potentially suitable profiles.
+                                        Unspecified preferences are
+                                        treated as flexible.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- FORM NAVIGATION -->
+
+                            <div class="form-navigation">
+
+                                <button type="button" id="previous-step" class="btn btn-outline hidden">
+
+                                    <i class="fas fa-arrow-left"></i>
+
+                                    Previous
+
+                                </button>
+
+
+                                <div class="form-navigation-right">
+
+                                    <button type="button" id="cancel-registration" class="btn btn-light">
+
+                                        Cancel
+
+                                    </button>
+
+
+                                    <button type="button" id="next-step" class="btn btn-primary">
+
+                                        Next Step
+
+                                        <i class="fas fa-arrow-right"></i>
+
+                                    </button>
+
+
+                                    <button type="submit" id="submit-client" class="btn btn-primary hidden">
+
+                                        <i class="fas fa-check"></i>
+
+                                        Save Client
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     PROFILE DETAILS
+                =============================== -->
+
+                <section id="profile-detail" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                CLIENT MANAGEMENT
+                            </span>
+
+                            <h1>
+                                Client Profile
+                            </h1>
+
+                            <p>
+                                View complete matrimonial profile information.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-outline" data-navigate="clients">
+
+                            <i class="fas fa-arrow-left"></i>
+
+                            Back to Directory
+
+                        </button>
+
+                    </div>
+
+
+                    <div id="profile-detail-content"></div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     MATCHMAKING
+                =============================== -->
+
+                <section id="matches" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                SMART MATCHMAKING
+                            </span>
+
+                            <h1>
+                                Matchmaking Engine
+                            </h1>
+
+                            <p>
+                                Discover potentially compatible profiles
+                                based on partner preferences.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Find Compatible Matches
+                                </h3>
+
+                                <p>
+                                    Select a client to generate
+                                    personalized match suggestions.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="match-search">
+
+                            <div class="form-group">
+
+                                <label for="match-client-select">
+                                    Select Client Profile
+                                </label>
+
+                                <select id="match-client-select">
+
+                                    <option value="">
+                                        Choose a client
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <button type="button" id="find-matches-btn" class="btn btn-primary">
+
+                                <i class="fas fa-wand-magic-sparkles"></i>
+
+                                Find Matches
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="match-results-header" class="results-heading hidden">
+
+                        <div>
+
+                            <h2>
+                                Suggested Matches
+                            </h2>
+
+                            <p id="match-results-description"></p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="match-results" class="client-grid"></div>
+
+
+
+                    <div id="matches-empty" class="empty-state">
+
+                        <div class="empty-icon">
+
+                            <i class="fas fa-heart"></i>
+
+                        </div>
+
+                        <h3>
+                            Find Your Perfect Match
+                        </h3>
+
+                        <p>
+                            Select a registered client and click
+                            Find Matches to view compatible profiles.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- SAVED MATCHES -->
+
+                    <div class="card section-spacing">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Saved Match Connections
+                                </h3>
+
+                                <p>
+                                    Previously recorded matchmaking connections
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="saved-matches" class="table-responsive"></div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     INQUIRY MANAGEMENT
+                =============================== -->
+
+                <section id="inquiries" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                COMMUNICATION
+                            </span>
+
+                            <h1>
+                                Inquiry Management
+                            </h1>
+
+                            <p>
+                                Manage matrimonial inquiries
+                                and expressions of interest.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" id="add-inquiry-button" class="btn btn-primary">
+
+                            <i class="fas fa-plus"></i>
+
+                            New Inquiry
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="stats-grid compact-stats">
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon blue">
+
+                                <i class="fas fa-envelope"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Total Inquiries</span>
+
+                                <h3 id="inquiry-total">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon orange">
+
+                                <i class="fas fa-clock"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Pending</span>
+
+                                <h3 id="inquiry-pending">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon green">
+
+                                <i class="fas fa-check-circle"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Resolved</span>
+
+                                <h3 id="inquiry-resolved">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    All Inquiries
+                                </h3>
+
+                                <p>
+                                    Review and update inquiry statuses.
+                                </p>
+
+                            </div>
+
+
+                            <select id="inquiry-status-filter" class="small-select"
+                                aria-label="Filter inquiries by status">
+
+                                <option value="">
+                                    All Statuses
+                                </option>
+
+                                <option value="Pending">
+                                    Pending
+                                </option>
+
+                                <option value="In Progress">
+                                    In Progress
+                                </option>
+
+                                <option value="Resolved">
+                                    Resolved
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div id="inquiry-table" class="table-responsive"></div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     MESSAGING
+                =============================== -->
+
+                <section id="messages" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                COMMUNICATION
+                            </span>
+
+                            <h1>
+                                Internal Messaging
+                            </h1>
+
+                            <p>
+                                Manage simulated conversations
+                                between bureau staff and clients.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="messaging-layout">
+
+
+                        <!-- CONVERSATION LIST -->
+
+                        <div class="card conversations-panel">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Conversations
+                                    </h3>
+
+                                    <p>
+                                        Select a client
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="conversation-search">
+
+                                <input type="search" id="conversation-search" placeholder="Search clients..."
+                                    aria-label="Search conversations">
+
+                            </div>
+
+
+                            <div id="conversation-list" class="conversation-list"></div>
+
+                        </div>
+
+
+
+                        <!-- CHAT PANEL -->
+
+                        <div class="card chat-panel">
+
+                            <div id="chat-header" class="chat-header">
+
+                                <div class="chat-header-placeholder">
+
+                                    <i class="fas fa-comments"></i>
+
+                                    <span>
+                                        Select a conversation
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div id="chat-messages" class="chat-messages" aria-live="polite">
+
+                                <div class="chat-empty">
+
+                                    <i class="fas fa-comment-dots"></i>
+
+                                    <h3>
+                                        Your Messages
+                                    </h3>
+
+                                    <p>
+                                        Select a client to start a conversation.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <form id="message-form" class="message-compose">
+
+                                <input type="text" id="message-input" placeholder="Type your message..."
+                                    maxlength="1000" autocomplete="off" aria-label="Message text" required>
+
+
+                                <button type="submit" class="btn btn-primary" aria-label="Send message">
+
+                                    <i class="fas fa-paper-plane"></i>
+
+                                    <span>Send</span>
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     SUCCESS STORIES
+                =============================== -->
+
+                <section id="success-stories" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                HAPPY BEGINNINGS
+                            </span>
+
+                            <h1>
+                                Success Stories
+                            </h1>
+
+                            <p>
+                                Celebrate beautiful marriages
+                                facilitated by MatrimonyHub.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" id="add-story-button" class="btn btn-primary">
+
+                            <i class="fas fa-plus"></i>
+
+                            Add Success Story
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="success-banner">
+
+                        <div class="success-banner-icon">
+
+                            <i class="fas fa-heart"></i>
+
+                        </div>
+
+                        <h2>
+                            Every Love Story Is Special
+                        </h2>
+
+                        <p>
+                            Celebrating meaningful connections
+                            and new beginnings.
+                        </p>
+
+                        <div class="success-total">
+
+                            <strong id="success-banner-count">
+                                0
+                            </strong>
+
+                            <span>
+                                Happy Stories
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="success-stories-grid" class="stories-grid"></div>
+
+
+
+                    <div id="stories-empty" class="empty-state hidden">
+
+                        <div class="empty-icon">
+
+                            <i class="fas fa-ring"></i>
+
+                        </div>
+
+                        <h3>
+                            No Success Stories Yet
+                        </h3>
+
+                        <p>
+                            Add your first success story
+                            to celebrate a happy couple.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     REPORTS AND ANALYTICS
+                =============================== -->
+
+                <section id="reports" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                BUSINESS INSIGHTS
+                            </span>
+
+                            <h1>
+                                Reports & Analytics
+                            </h1>
+
+                            <p>
+                                Understand your bureau's performance
+                                through useful statistics.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" id="export-csv-button" class="btn btn-primary">
+
+                            <i class="fas fa-file-csv"></i>
+
+                            Export Clients CSV
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon blue">
+
+                                <i class="fas fa-users"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Total Profiles</span>
+
+                                <h3 id="report-total-clients">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon pink">
+
+                                <i class="fas fa-heart"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Total Matches</span>
+
+                                <h3 id="report-total-matches">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon green">
+
+                                <i class="fas fa-ring"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Successful Marriages</span>
+
+                                <h3 id="report-success-count">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon orange">
+
+                                <i class="fas fa-percent"></i>
+
+                            </div>
+
+                            <div class="stat-content">
+
+                                <span>Success Rate</span>
+
+                                <h3 id="report-success-rate">
+                                    0%
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="reports-grid">
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Gender Distribution
+                                    </h3>
+
+                                    <p>
+                                        Registered clients by gender
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div id="gender-report" class="report-chart"></div>
+
+                        </div>
+
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Profile Status
+                                    </h3>
+
+                                    <p>
+                                        Current matrimonial profile statuses
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div id="status-report" class="report-chart"></div>
+
+                        </div>
+
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Religion Distribution
+                                    </h3>
+
+                                    <p>
+                                        Client demographic overview
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div id="religion-report" class="report-chart"></div>
+
+                        </div>
+
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Match Performance
+                                    </h3>
+
+                                    <p>
+                                        Matchmaking activity overview
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div id="match-report" class="report-chart"></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     NOTIFICATIONS
+                =============================== -->
+
+                <section id="notifications" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                ACTIVITY CENTER
+                            </span>
+
+                            <h1>
+                                Notifications
+                            </h1>
+
+                            <p>
+                                Stay updated on client registrations,
+                                matches, and inquiries.
+                            </p>
+
+                        </div>
+
+
+                        <button type="button" id="clear-notifications" class="btn btn-outline">
+
+                            <i class="fas fa-check-double"></i>
+
+                            Mark All as Read
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="card">
+
+                        <div id="notifications-list" class="notifications-list"></div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==============================
+                     SETTINGS
+                =============================== -->
+
+                <section id="settings" class="page-section">
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                ACCOUNT MANAGEMENT
+                            </span>
+
+                            <h1>
+                                Settings
+                            </h1>
+
+                            <p>
+                                Manage your account preferences
+                                and application settings.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="settings-grid">
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Account Information
+                                    </h3>
+
+                                    <p>
+                                        Current signed-in account
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="settings-info">
+
+                                <div class="settings-row">
+
+                                    <span>Name</span>
+
+                                    <strong id="settings-name">
+                                        -
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="settings-row">
+
+                                    <span>Email</span>
+
+                                    <strong id="settings-email">
+                                        -
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="settings-row">
+
+                                    <span>Account Type</span>
+
+                                    <strong id="settings-role">
+                                        -
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Appearance
+                                    </h3>
+
+                                    <p>
+                                        Customize your dashboard appearance
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="setting-option">
+
+                                <div>
+
+                                    <h4>
+                                        Dark Mode
+                                    </h4>
+
+                                    <p>
+                                        Use a darker dashboard color scheme.
+                                    </p>
+
+                                </div>
+
+
+                                <label class="switch">
+
+                                    <input type="checkbox" id="dark-mode-setting" aria-label="Enable dark mode">
+
+                                    <span class="slider"></span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3>
+                                        Data Management
+                                    </h3>
+
+                                    <p>
+                                        Export and manage local application data
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="settings-actions">
+
+                                <button type="button" id="settings-export" class="btn btn-outline">
+
+                                    <i class="fas fa-download"></i>
+
+                                    Export Client Data
+
+                                </button>
+
+
+                                <button type="button" id="reset-demo-data" class="btn btn-danger-outline">
+
+                                    <i class="fas fa-rotate"></i>
+
+                                    Reset Demo Data
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="info-box">
+
+                                <i class="fas fa-circle-info"></i>
+
+                                <p>
+                                    This internship project stores
+                                    demonstration data in your browser.
+                                    It does not use a production database
+                                    or secure authentication server.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+            </main>
+
+
+
+            <!-- ==================================
+                 FOOTER
+            =================================== -->
+
+            <footer class="app-footer">
+
+                <p>
+                    © <span id="current-year">2026</span>
+                    MatrimonyHub.
+                    Marriage Bureau Management System.
+                </p>
+
+                <p>
+                    Internship Task WD-MAT-004
+                    |
+                    Data Alcott Systems
+                </p>
+
+            </footer>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         INQUIRY MODAL
+    =========================================== -->
+
+    <div id="inquiry-modal" class="modal-overlay hidden" role="dialog" aria-modal="true"
+        aria-labelledby="inquiry-modal-title">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2 id="inquiry-modal-title">
+                    Create New Inquiry
+                </h2>
+
+
+                <button type="button" class="modal-close" data-close-modal="inquiry-modal"
+                    aria-label="Close inquiry form">
+
+                    <i class="fas fa-times"></i>
+
+                </button>
+
+            </div>
+
+
+            <form id="inquiry-form">
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+
+                        <label for="inquiry-client">
+                            Client *
+                        </label>
+
+                        <select id="inquiry-client" required>
+
+                            <option value="">
+                                Select Client
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="inquiry-subject">
+                            Subject *
+                        </label>
+
+                        <input type="text" id="inquiry-subject" placeholder="Enter inquiry subject" maxlength="150"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="inquiry-message">
+                            Message *
+                        </label>
+
+                        <textarea id="inquiry-message" rows="5" placeholder="Enter inquiry details..." maxlength="2000"
+                            required></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="inquiry-status">
+                            Status
+                        </label>
+
+                        <select id="inquiry-status">
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Resolved">
+                                Resolved
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-light" data-close-modal="inquiry-modal">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button type="submit" class="btn btn-primary">
+
+                        <i class="fas fa-check"></i>
+
+                        Save Inquiry
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         SUCCESS STORY MODAL
+    =========================================== -->
+
+    <div id="story-modal" class="modal-overlay hidden" role="dialog" aria-modal="true"
+        aria-labelledby="story-modal-title">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2 id="story-modal-title">
+                    Add Success Story
+                </h2>
+
+
+                <button type="button" class="modal-close" data-close-modal="story-modal"
+                    aria-label="Close success story form">
+
+                    <i class="fas fa-times"></i>
+
+                </button>
+
+            </div>
+
+
+            <form id="story-form">
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+
+                        <label for="story-couple">
+                            Couple Names *
+                        </label>
+
+                        <input type="text" id="story-couple" placeholder="e.g. Rahul & Priya" maxlength="150" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="story-date">
+                            Wedding Date *
+                        </label>
+
+                        <input type="date" id="story-date" required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="story-description">
+                            Their Story *
+                        </label>
+
+                        <textarea id="story-description" rows="6" placeholder="Share their beautiful journey..."
+                            maxlength="3000" required></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="story-image">
+                            Photo
+                        </label>
+
+                        <input type="file" id="story-image" accept="image/png,image/jpeg,image/webp">
+
+                        <small>
+                            Optional image. Maximum size: 1 MB.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-light" data-close-modal="story-modal">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button type="submit" class="btn btn-primary">
+
+                        <i class="fas fa-heart"></i>
+
+                        Save Story
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         CONFIRMATION MODAL
+    =========================================== -->
+
+    <div id="confirm-modal" class="modal-overlay hidden" role="dialog" aria-modal="true"
+        aria-labelledby="confirm-modal-title">
+
+        <div class="modal confirm-modal">
+
+            <div class="confirm-icon">
+
+                <i class="fas fa-triangle-exclamation"></i>
+
+            </div>
+
+
+            <h2 id="confirm-modal-title">
+                Confirm Action
+            </h2>
+
+
+            <p id="confirm-modal-message">
+                Are you sure you want to continue?
+            </p>
+
+
+            <div class="confirm-actions">
+
+                <button type="button" id="confirm-cancel" class="btn btn-light">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="button" id="confirm-accept" class="btn btn-danger">
+
+                    Confirm
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
